@@ -1,30 +1,30 @@
-import { type ReactNode, useEffect } from "react";
+import { type ReactNode, useEffect } from 'react'
 
 interface ModalProps {
-  onClose: () => void;
-  children: ReactNode;
+  onClose: () => void
+  children: ReactNode
 }
-const Modal = (props: ModalProps) => {
+const Modal = ({ children, onClose }: ModalProps) => {
   useEffect(() => {
-    console.log("mount");
+    console.log('mount')
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        props.onClose();
+      if (e.key === 'Escape') {
+        onClose()
       }
-    };
-    window.addEventListener("keydown", handleEscape);
+    }
+    window.addEventListener('keydown', handleEscape)
     return () => {
-      console.log("unmount");
-      window.removeEventListener("keydown", handleEscape);
-    };
-  }, []);
+      console.log('unmount')
+      window.removeEventListener('keydown', handleEscape)
+    }
+  }, [onClose])
 
   return (
     <div>
-      {props.children}
-      <button onClick={props.onClose}>close</button>
+      {children}
+      <button onClick={onClose}>close</button>
     </div>
-  );
-};
+  )
+}
 
-export default Modal;
+export default Modal

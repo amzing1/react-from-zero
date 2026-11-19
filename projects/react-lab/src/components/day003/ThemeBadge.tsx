@@ -1,8 +1,8 @@
-import { useTheme } from "./ThemeProvider";
+import { useTheme } from './ThemeProvider'
 
 const ThemeBadge = () => {
-  const { theme, toggleTheme } = useTheme();
-  return <button onClick={toggleTheme}>{theme}</button>;
-};
+  const { theme, toggleTheme } = useTheme()
+  return <button onClick={toggleTheme}>{theme}</button>
+}
 
-export default ThemeBadge;
+export default ThemeBadge

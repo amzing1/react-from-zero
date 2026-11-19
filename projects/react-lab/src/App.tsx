@@ -1,8 +1,8 @@
-import { Activity, useState } from "react";
-import Counter from "./components/day004/Counter";
+import { Activity, useState } from 'react'
+import Counter from './components/day004/Counter'
 
 function App() {
-  const [mode, setMode] = useState<"hidden" | "visible">("visible");
+  const [mode, setMode] = useState<'hidden' | 'visible'>('visible')
   return (
     <div>
       <Activity mode={mode}>
@@ -10,13 +10,13 @@ function App() {
       </Activity>
       <button
         onClick={() =>
-          setMode((prev) => (prev === "visible" ? "hidden" : "visible"))
+          setMode((prev) => (prev === 'visible' ? 'hidden' : 'visible'))
         }
       >
         toggle
       </button>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,16 +1,16 @@
-import type { ReactNode } from "react";
-import Card from "./Card";
-import ThemeBadge from "./ThemeBadge";
+import type { ReactNode } from 'react'
+import Card from './Card'
+import ThemeBadge from './ThemeBadge'
 
 interface UserCardProps {
   user: {
-    id: string;
-    name: string;
-    role: string;
-  };
-  onEdit: (user: UserCardProps["user"]) => void;
-  onDelete: (id: string) => void;
-  renderActions: (user: UserCardProps["user"]) => ReactNode;
+    id: string
+    name: string
+    role: string
+  }
+  onEdit: (user: UserCardProps['user']) => void
+  onDelete: (id: string) => void
+  renderActions: (user: UserCardProps['user']) => ReactNode
 }
 
 const UserCard = ({ user, onEdit, onDelete, renderActions }: UserCardProps) => {
@@ -33,7 +33,7 @@ const UserCard = ({ user, onEdit, onDelete, renderActions }: UserCardProps) => {
         {renderActions(user)}
       </Card>
     </>
-  );
-};
+  )
+}
 
-export default UserCard;
+export default UserCard

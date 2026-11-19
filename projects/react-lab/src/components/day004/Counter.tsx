@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
 const Counter = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
-    console.log(count);
+    console.log(count)
     return () => {
-      console.log("cleanup");
-    };
-  }, [count]);
+      console.log('cleanup')
+    }
+  }, [count])
   return (
     <div>
       <p>count: {count}</p>
       <button onClick={() => setCount((prev) => prev + 1)}>+</button>
     </div>
-  );
-};
+  )
+}
 
-export default Counter;
+export default Counter

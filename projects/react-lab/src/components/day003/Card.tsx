@@ -1,9 +1,9 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
 interface Props {
-  header?: ReactNode;
-  footer?: ReactNode;
-  children: ReactNode;
+  header?: ReactNode
+  footer?: ReactNode
+  children: ReactNode
 }
 
 const Card = ({ header, footer, children }: Props) => {
@@ -13,7 +13,7 @@ const Card = ({ header, footer, children }: Props) => {
       {children}
       {footer && <footer>{footer}</footer>}
     </>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

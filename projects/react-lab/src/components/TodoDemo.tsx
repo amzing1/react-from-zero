@@ -1,21 +1,21 @@
-import { useState } from "react";
-import type { Todo } from "../types";
+import { useState } from 'react'
+import type { Todo } from '@/types'
 
 const TodoDemo = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [text, setText] = useState("");
+  const [todos, setTodos] = useState<Todo[]>([])
+  const [text, setText] = useState('')
 
-  console.log("[render] TodoDemo", todos);
+  console.log('[render] TodoDemo', todos)
 
   function handleKeydown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === "Enter") {
-      addTodo(text.trim());
+    if (e.key === 'Enter') {
+      addTodo(text.trim())
     }
   }
 
   function addTodo(title: string) {
-    if (title === "") {
-      return;
+    if (title === '') {
+      return
     }
     setTodos((prev) => [
       ...prev,
@@ -24,23 +24,23 @@ const TodoDemo = () => {
         title,
         done: false,
       },
-    ]);
-    setText("");
+    ])
+    setText('')
   }
 
   function delTodo(id: string) {
-    setTodos((prev) => prev.filter((v) => v.id !== id));
+    setTodos((prev) => prev.filter((v) => v.id !== id))
   }
 
   function addTwo(title: string) {
-    addTodo(title);
-    addTodo(title);
+    addTodo(title)
+    addTodo(title)
   }
 
   function toggleTodoDone(id: string) {
     setTodos((prev) =>
       prev.map((v) => (v.id === id ? { ...v, done: !v.done } : v)),
-    );
+    )
   }
 
   return (
@@ -57,7 +57,7 @@ const TodoDemo = () => {
       {todos.map((v) => (
         <div key={v.id}>
           <span
-            style={{ textDecoration: v.done ? "line-through" : "" }}
+            style={{ textDecoration: v.done ? 'line-through' : '' }}
             onClick={() => toggleTodoDone(v.id)}
           >
             {v.title}
@@ -66,7 +66,7 @@ const TodoDemo = () => {
         </div>
       ))}
     </>
-  );
-};
+  )
+}
 
-export default TodoDemo;
+export default TodoDemo
