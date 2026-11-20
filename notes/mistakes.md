@@ -20,6 +20,12 @@
 | 2026-11-20 | Vite 8 构建内核 | 认为 build 使用 Rollup | Vite 8 build 内核是 Rolldown（API 兼容 Rollup）；dev 转换器是 Oxc | Day 005 自测 Q1 | 2026-11-21 | 未复习 |
 | 2026-11-20 | TypeScript strict 家族 | 只记得 strictNullChecks，把 noUncheckedIndexedAccess 混在一起 | strict 含 8 项；noUncheckedIndexedAccess 是独立选项，索引访问返回 `T \| undefined` | Day 005 自测 Q3 | 2026-11-21 | 未复习 |
 | 2026-11-20 | 类型导入选项 | 不知道 verbatimModuleSyntax / erasableSyntaxOnly | 前者强制 `import type`；后者禁止 enum/namespace/参数属性等不可擦除语法 | Day 005 自测 Q4 | 2026-11-21 | 未复习 |
+| 2026-11-20 | Vite 8 dev 转换器 | 认为 dev 转换器是 esbuild | Vite 8 dev 用 Oxc，build 用 Rolldown；esbuild 是 Vite 7 及以前 | Day 006 热身 Q1（005 同款错题） | 2026-11-21 | 未复习 |
+| 2026-11-20 | StrictMode 执行顺序（回归） | render → commit → render | 开发模式 render 双调用、commit 一次；挂载后 Effect 是 setup → cleanup → setup | Day 006 知识地图 | 2026-11-22 | 未复习（11-16 已纠正，出现回归） |
+| 2026-11-20 | React 更新机制 | 新快照与旧快照 diff 决定是否更新 | dispatch 用 `Object.is` 比较新旧 state；不同则调度拥有该 state 的组件实例重渲染；render 返回新元素树，与当前 fiber 树 reconcile；commit 更新 DOM | Day 006 任务 D | 2026-11-22 | 未复习 |
+| 2026-11-20 | Hook 顺序的原因 | 因为状态是快照，所以 Hooks 必须固定顺序 | 因为组件函数每次 render 重新执行，hook 状态按调用顺序存在 fiber 链表上；条件调用导致第 N 个 hook 对应错节点 | Day 006 因果链 1 | 2026-11-22 | 未复习 |
+| 2026-11-20 | state 的归属 | 调度所有持有该 state 的组件 | state 是组件实例私有；调度拥有该 state 的组件实例，子树默认重渲染，除非 memo/bailout | Day 006 任务 D | 2026-11-22 | 未复习 |
+| 2026-11-20 | Context 与 Compiler | Provider 本身导致消费者额外渲染；Compiler 自动补 useMemo/useCallback | Context value 引用变化导致所有消费者重渲染；内联 value 每次新引用；Compiler 在符合 Rules of React、可静态分析时自动 memo 化 value | Day 006 因果链 3 | 2026-11-23 | 未复习 |
 
 ## 高频错误清单
 
@@ -64,3 +70,4 @@
 | 2026-11-18 | 001/003 到期项 + 错题重测（commit 子阶段、element、组件接口、Context） | commit/element/插槽已纠正；Context value 引用仍未答出；Hooks 顺序已掌握 | Context 11-20 再测 |
 | 2026-11-18 | 004 闭卷自测（版本主线、Actions、Activity、Compiler、RSC） | 7/10；useOptimistic 与 RSC/SSR 水合是主要缺口 | 已写入错题，11-19 重测 |
 | 2026-11-20 | 005 闭卷自测（Vite/TS/alias/sourcemap/DevTools）+ Context 到期复习 | 6/10；Rolldown、strict 家族、类型导入选项是主要缺口；Context value 已答对 | 已写入错题，11-21 重测 |
+| 2026-11-20 | 006 热身 + 知识地图 + 三条因果链 + 任务 D | 热身 3.8/5；知识地图 002–005 完成（001 待补）；三条链修正后通过；任务 D React 侧仍有「所有持有 state 的组件」需改为「拥有者实例」 | 已写入错题；下次先补 001 + 闭卷自测 |
