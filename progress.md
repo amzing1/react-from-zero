@@ -7,19 +7,19 @@
 ## 当前状态
 
 - **当前阶段**：阶段 0 · 起跑
-- **下一个课时**：005 · 工程基线：Vite + TS + ESLint + DevTools
+- **下一个课时**：006 · 阶段复盘与学习系统校准
 - **进行中**：无
-- **已完成**：4 / 108
-- **连续学习**：4 天
+- **已完成**：5 / 108
+- **连续学习**：6 天
 - **开始日期**：2026-11-15
-- **最近更新**：2026-11-18
+- **最近更新**：2026-11-20
 - **计划周期**：18 周（每天约 2 小时，每周 6 天）
 
 ## 阶段进度
 
 | 阶段 | 课时范围 | 完成 |
 |---|---|---|
-| 0 · 起跑 | 001–006 | 4 / 6 |
+| 0 · 起跑 | 001–006 | 5 / 6 |
 | 1 · React 核心 | 007–030 | 0 / 24 |
 | 2 · 并发与新范式 | 031–042 | 0 / 12 |
 | 3 · 生态与工程化 | 043–066 | 0 / 24 |
@@ -37,7 +37,7 @@
 - [x] 002 · Vue→React 心智模型 I：渲染与状态
 - [x] 003 · Vue→React 心智模型 II：组件、组合与生命周期
 - [x] 004 · React 19.3 全景与生态地图
-- [ ] 005 · 工程基线：Vite + TS + ESLint + DevTools
+- [x] 005 · 工程基线：Vite + TS + ESLint + DevTools
 - [ ] 006 · 阶段复盘与学习系统校准
 
 ### 阶段 1 · React 核心（第 2–5 周）
@@ -219,18 +219,22 @@
 | 2026-11-18 | 001 诊断 | React commit 有哪些子阶段？useLayoutEffect/useEffect 分别何时执行？ | 已完成（11-18，子阶段补全） |
 | 2026-11-18 | 001 学习 | memo 的浅比较与 bailout 条件？element 创建与组件函数执行的区别？ | 已完成（11-18，element 概念纠正） |
 | 2026-11-18 | 003 | 1) emit/三种插槽/provide-inject 的 React 写法？2) `onClick={onSave("x")}` 错在哪？3) children 与具名插槽？ | 已完成（11-18） |
-| 2026-11-19 | 002 | 1) React 用什么判断 state 变化？2) 为什么必须不可变？3) setList([...list]) 的隐患？ | 待复习 |
-| 2026-11-19 | 004 | 1) 19.0/19.2/19.3 主线+代表 API？2) Actions 三件套分工？3) Activity hidden 的 state/Effect 行为？ | 待复习 |
-| 2026-11-20 | 003 | 1) 内联 Context value 为何导致额外重渲染？2) 与 provide/inject 的追踪差异？3) 两种减少重渲染的方法？ | 待复习 |
+| 2026-11-19 | 002 | 1) React 用什么判断 state 变化？2) 为什么必须不可变？3) setList([...list]) 的隐患？ | 已完成（11-20，延迟；mutation 隐患仍需巩固） |
+| 2026-11-19 | 004 | 1) 19.0/19.2/19.3 主线+代表 API？2) Actions 三件套分工？3) Activity hidden 的 state/Effect 行为？ | 已完成（11-20，延迟；Actions/RSC 待巩固） |
+| 2026-11-20 | 003 | 1) 内联 Context value 为何导致额外重渲染？2) 与 provide/inject 的追踪差异？3) 两种减少重渲染的方法？ | 已完成（11-20，value 引用已答对） |
 | 2026-11-21 | 004 | 1) RSC 与 SSR 的区别？2) Server Component 的限制？3) Compiler 后何时仍需手写 memo？ | 待复习 |
+| 2026-11-21 | 005 | 1) Vite dev/build 差异与 Rolldown/Oxc 分工？2) paths vs alias？3) strict 关键子项？ | 待复习 |
 | 2026-11-22 | 001 诊断 | Context value 变化时哪些组件重渲染？如何减少？ | 待复习 |
 | 2026-11-22 | 001 学习 | createRoot 相比 ReactDOM.render 的变化？为什么函数式更新更安全？ | 待复习 |
 | 2026-11-23 | 002 | 1) 父组件更新子组件默认重渲染吗？Vue 呢？2) 三种跳过手段？3) Vue 为何仍需 diff？ | 待复习 |
+| 2026-11-23 | 005 | 1) verbatimModuleSyntax/erasableSyntaxOnly？2) noUncheckedIndexedAccess 取舍？3) sourcemap hidden 用法？ | 待复习 |
 | 2026-11-24 | 003 | 1) 条件挂载 vs 提前 return 的生命周期差异？2) 为何 Hooks 不能条件调用？3) StrictMode 下 Modal 日志？ | 待复习 |
 | 2026-11-25 | 004 | 1) 三层模型与使用顺序？2) 生态选型：状态/服务端状态/路由？3) 19.3 新能力（ViewTransition/Fragment refs/browser）？ | 待复习 |
+| 2026-11-27 | 005 | 1) 环境变量加载 + strictImportMetaEnv？2) 五层基线/初始化 checklist？3) Profiler 如何定位重渲染？ | 待复习 |
 | 2026-12-01 | 002 | 1) render/commit 各做什么？2) render 为何必须纯？3) StrictMode 双调用范围与 Effect 处理？ | 待复习 |
 | 2026-12-02 | 003 | 1) Vue 生命周期/指令/样式映射？2) 作用域插槽怎么实现？3) React 19 Context/ref-as-prop 新写法？ | 待复习 |
 | 2026-12-03 | 004 | 1) 19.0–19.3 各解决什么问题？2) Actions 与普通事件处理的区别？3) use() 的 Promise 缓存要求？ | 待复习 |
+| 2026-12-05 | 005 | 1) 四条脚本的职责？2) project references / tsc -b？3) oxlint/ESLint/Biome 选型？ | 待复习 |
 
 ## 待解决疑问
 
@@ -246,7 +250,8 @@
 | 底层原理（Commit/Scheduler/Suspense） | Commit 子阶段混淆；Scheduler/Suspense 不清楚 | 阶段 5；Day 023/039 预热 | 待补 |
 | 生态（Query/路由/表单/测试） | 知道名字，不清楚边界与选型 | 阶段 3 | 待补 |
 | useEffect 依赖与清理 | 会用，但 cleanup 时机和依赖比较不完整 | Day 020–021 + 复习队列 | 待补 |
-| Context 重渲染 | 误以为只订阅需要的字段即可；内联 value 对象导致所有消费者额外重渲染 | Day 017 + 复习队列 | 待补 |
+| Context 重渲染 | 误以为只订阅需要的字段即可；内联 value 对象导致所有消费者额外重渲染 | Day 017 + 复习队列 | 已纠正（11-20），Day 017 巩固 |
+| 工程化与 TS 严格项 | Vite 8 构建内核、strict 家族、verbatimModuleSyntax/erasableSyntaxOnly 不熟 | Day 005 已讲 + 1/3/7/15 复习 | 待补 |
 | 状态快照与不可变更新 | 不可变与批处理已纠正；`console.log` 快照读取仍不稳 | Day 013–014 + 1/3/7/15 复习 | 待补 |
 | Hooks 调用规则 | 知道不能条件调用，但说不清原理；条件挂载与提前 return 混淆 | Day 003 已纠正 + 阶段 5 Hooks 源码 | 待补 |
 
@@ -265,3 +270,4 @@
 | 2026-11-16 | 002 | Vue→React 心智模型 I：渲染与状态 | ~2h | 快照/批处理/不可变更新；Todo 实现；纠正 StrictMode 顺序与 render 次数误解；自测 8.5/10；build 通过 |
 | 2026-11-17 | 003 | Vue→React 心智模型 II：组件、组合与生命周期 | ~2h | props/emit/slots/Context；Card + UserCard + ThemeBadge + Modal；纠正 Context 引用与 Hooks 顺序；自测 6.5/10；build 通过 |
 | 2026-11-18 | 004 | React 19.3 全景与生态地图 | ~2h | 19.0–19.3 时间线；Actions/Activity/Compiler/RSC 速览；Activity 实验；个人知识地图；自测 7/10；build 通过 |
+| 2026-11-20 | 005 | 工程基线：Vite + TS + oxlint + Prettier + DevTools | ~2h（跨 11-19/20） | 五层基线；strict/alias/env/scripts；修 ThemeBadge 旧 import；Highlight/Profiler；基线清单；自测 6/10；四项检查全绿 |

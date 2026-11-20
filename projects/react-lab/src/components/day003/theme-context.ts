@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext } from 'react'
 
 type ThemeContextValue = { theme: 'light' | 'dark'; toggleTheme: () => void }
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined)

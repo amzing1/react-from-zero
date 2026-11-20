@@ -1,4 +1,4 @@
-import { useTheme } from './ThemeProvider'
+import { useTheme } from './theme-context'
 
 const ThemeBadge = () => {
   const { theme, toggleTheme } = useTheme()
