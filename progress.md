@@ -6,21 +6,21 @@
 
 ## 当前状态
 
-- **当前阶段**：阶段 0 · 起跑
-- **下一个课时**：006 · 阶段复盘与学习系统校准（进行中，待闭卷自测）
-- **进行中**：006（2026-11-20 暂停）
-- **已完成**：5 / 108
-- **连续学习**：6 天
+- **当前阶段**：阶段 1 · React 核心
+- **下一个课时**：012 · 周复盘与自测
+- **进行中**：无
+- **已完成**：11 / 108
+- **连续学习**：1 天（11-21 中断，11-22 重新起算）
 - **开始日期**：2026-11-15
-- **最近更新**：2026-11-20
+- **最近更新**：2026-11-22
 - **计划周期**：18 周（每天约 2 小时，每周 6 天）
 
 ## 阶段进度
 
 | 阶段 | 课时范围 | 完成 |
 |---|---|---|
-| 0 · 起跑 | 001–006 | 5 / 6 |
-| 1 · React 核心 | 007–030 | 0 / 24 |
+| 0 · 起跑 | 001–006 | 6 / 6 ✅ |
+| 1 · React 核心 | 007–030 | 5 / 24 |
 | 2 · 并发与新范式 | 031–042 | 0 / 12 |
 | 3 · 生态与工程化 | 043–066 | 0 / 24 |
 | 4 · Next.js 与 RSC | 067–078 | 0 / 12 |
@@ -38,17 +38,17 @@
 - [x] 003 · Vue→React 心智模型 II：组件、组合与生命周期
 - [x] 004 · React 19.3 全景与生态地图
 - [x] 005 · 工程基线：Vite + TS + ESLint + DevTools
-- [ ] 006 · 阶段复盘与学习系统校准（进行中：热身/知识地图/Top 5/校准/验收表述草稿已完成；待 001 节点句 + 闭卷自测）
+- [x] 006 · 阶段复盘与学习系统校准（2026-11-20 完成；闭卷自测 3.6/5）
 
 ### 阶段 1 · React 核心（第 2–5 周）
 
 **第 2 周 · 组件与渲染**
 
-- [ ] 007 · JSX 深入与组件本质
-- [ ] 008 · Props、children 与组合
-- [ ] 009 · 渲染与提交：纯函数、StrictMode、快照
-- [ ] 010 · 条件渲染、列表、key 与事件
-- [ ] 011 · 项目 A：笔记卡片列表
+- [x] 007 · JSX 深入与组件本质（2026-11-22 完成；自测 4.4/6）
+- [x] 008 · Props、children 与组合（2026-11-22 完成；自测 3.6/5）
+- [x] 009 · 渲染与提交：纯函数、StrictMode、快照（2026-11-22 完成；自测 4.5/6）
+- [x] 010 · 条件渲染、列表、key 与事件（2026-11-22 完成；自测 4.5/5）
+- [x] 011 · 项目 A：笔记卡片列表（2026-11-22 完成；项目自测 5.1/6）
 - [ ] 012 · 周复盘与自测
 
 **第 3 周 · 状态与表单**
@@ -222,25 +222,49 @@
 | 2026-11-19 | 002 | 1) React 用什么判断 state 变化？2) 为什么必须不可变？3) setList([...list]) 的隐患？ | 已完成（11-20，延迟；mutation 隐患仍需巩固） |
 | 2026-11-19 | 004 | 1) 19.0/19.2/19.3 主线+代表 API？2) Actions 三件套分工？3) Activity hidden 的 state/Effect 行为？ | 已完成（11-20，延迟；Actions/RSC 待巩固） |
 | 2026-11-20 | 003 | 1) 内联 Context value 为何导致额外重渲染？2) 与 provide/inject 的追踪差异？3) 两种减少重渲染的方法？ | 已完成（11-20，value 引用已答对） |
-| 2026-11-21 | 004 | 1) RSC 与 SSR 的区别？2) Server Component 的限制？3) Compiler 后何时仍需手写 memo？ | 待复习 |
-| 2026-11-21 | 005 | 1) Vite dev/build 差异与 Rolldown/Oxc 分工？2) paths vs alias？3) strict 关键子项？ | 待复习 |
+| 2026-11-21 | 004 | 1) RSC 与 SSR 的区别？2) Server Component 的限制？3) Compiler 后何时仍需手写 memo？ | 待复习（延迟至 11-23） |
+| 2026-11-21 | 005 | 1) Vite dev/build 差异与 Rolldown/Oxc 分工？2) paths vs alias？3) strict 关键子项？ | 待复习（延迟至 11-23） |
+| 2026-11-21 | 006 | 1) Vue 的「细粒度」在哪一层？React 为什么只能组件级重渲染？2) 跳过子组件重渲染的三种手段？useMemo 为什么不算？3) RSC 与 SSR 的区别？Server Component 会 hydrate 吗？ | 已完成（11-22，007 热身/自测覆盖） |
 | 2026-11-22 | 001 诊断 | Context value 变化时哪些组件重渲染？如何减少？ | 待复习 |
 | 2026-11-22 | 001 学习 | createRoot 相比 ReactDOM.render 的变化？为什么函数式更新更安全？ | 待复习 |
 | 2026-11-23 | 002 | 1) 父组件更新子组件默认重渲染吗？Vue 呢？2) 三种跳过手段？3) Vue 为何仍需 diff？ | 待复习 |
 | 2026-11-23 | 005 | 1) verbatimModuleSyntax/erasableSyntaxOnly？2) noUncheckedIndexedAccess 取舍？3) sourcemap hidden 用法？ | 待复习 |
+| 2026-11-23 | 006 | 1) Vue 的「细粒度」在哪一层？React 为什么只能组件级重渲染？2) 跳过子组件重渲染的三种手段？useMemo 为什么不算？3) RSC 与 SSR 的区别？Server Component 会 hydrate 吗？ | 待复习 |
+| 2026-11-23 | 007 | 1) `<div>` 和 `<Foo>` 编译后第一个参数差在哪？为什么必须大写？2) Fragment 短语法能加 key 吗？`<Fragment key>` 呢？3) `0 && <X />` 渲染什么？为什么？ | 待复习 |
+| 2026-11-23 | 008 | 1) Vue 的具名插槽、作用域插槽在 React 里怎么写？2) 为什么不能直接调用组件函数？3) children 作为 prop 为什么可能减少重渲染？ | 待复习 |
+| 2026-11-23 | 009 | 1) render/commit 各做什么？commit 四个子阶段？哪个可中断？2) 为什么 render 必须纯？StrictMode 下 render/commit/Effect 各几次（开发/生产）？3) 三次 `setN(n+1)` vs 三次 `setN(x=>x+1)` 的结果？为什么？ | 待复习 |
+| 2026-11-23 | 010 | 1) 为什么 index 作为 key 在重排时会出问题？给一个具体场景。2) key 每次 render 都变会怎样？key 能通过 props 拿到吗？3) React 事件监听器挂在哪里？target vs currentTarget？stopPropagation vs preventDefault？ | 待复习 |
+| 2026-11-23 | 011 | 1) 为什么过滤结果要 render 时派生，而不是放 state？2) 受控 vs 非受控：只写 onChange 不写 value 会怎样？清除筛选时为什么必须受控？3) 列表 key 用什么？index 在过滤/重排时为什么出问题？ | 待复习 |
 | 2026-11-24 | 003 | 1) 条件挂载 vs 提前 return 的生命周期差异？2) 为何 Hooks 不能条件调用？3) StrictMode 下 Modal 日志？ | 待复习 |
 | 2026-11-25 | 004 | 1) 三层模型与使用顺序？2) 生态选型：状态/服务端状态/路由？3) 19.3 新能力（ViewTransition/Fragment refs/browser）？ | 待复习 |
+| 2026-11-25 | 007 | 1) `<div>` 和 `<Foo>` 编译后第一个参数差在哪？为什么必须大写？2) Fragment 短语法能加 key 吗？`<Fragment key>` 呢？3) `0 && <X />` 渲染什么？为什么？ | 待复习 |
+| 2026-11-25 | 008 | 1) Vue 的具名插槽、作用域插槽在 React 里怎么写？2) 为什么不能直接调用组件函数？3) children 作为 prop 为什么可能减少重渲染？ | 待复习 |
+| 2026-11-25 | 009 | 1) render/commit 各做什么？commit 四个子阶段？哪个可中断？2) 为什么 render 必须纯？StrictMode 下 render/commit/Effect 各几次（开发/生产）？3) 三次 `setN(n+1)` vs 三次 `setN(x=>x+1)` 的结果？为什么？ | 待复习 |
+| 2026-11-25 | 010 | 1) 为什么 index 作为 key 在重排时会出问题？给一个具体场景。2) key 每次 render 都变会怎样？key 能通过 props 拿到吗？3) React 事件监听器挂在哪里？target vs currentTarget？stopPropagation vs preventDefault？ | 待复习 |
+| 2026-11-25 | 011 | 1) 为什么过滤结果要 render 时派生，而不是放 state？2) 受控 vs 非受控：只写 onChange 不写 value 会怎样？清除筛选时为什么必须受控？3) 列表 key 用什么？index 在过滤/重排时为什么出问题？ | 待复习 |
 | 2026-11-27 | 005 | 1) 环境变量加载 + strictImportMetaEnv？2) 五层基线/初始化 checklist？3) Profiler 如何定位重渲染？ | 待复习 |
+| 2026-11-27 | 006 | 1) Vue 的「细粒度」在哪一层？React 为什么只能组件级重渲染？2) 跳过子组件重渲染的三种手段？useMemo 为什么不算？3) RSC 与 SSR 的区别？Server Component 会 hydrate 吗？ | 待复习 |
+| 2026-11-29 | 007 | 1) `<div>` 和 `<Foo>` 编译后第一个参数差在哪？为什么必须大写？2) Fragment 短语法能加 key 吗？`<Fragment key>` 呢？3) `0 && <X />` 渲染什么？为什么？ | 待复习 |
+| 2026-11-29 | 008 | 1) Vue 的具名插槽、作用域插槽在 React 里怎么写？2) 为什么不能直接调用组件函数？3) children 作为 prop 为什么可能减少重渲染？ | 待复习 |
+| 2026-11-29 | 009 | 1) render/commit 各做什么？commit 四个子阶段？哪个可中断？2) 为什么 render 必须纯？StrictMode 下 render/commit/Effect 各几次（开发/生产）？3) 三次 `setN(n+1)` vs 三次 `setN(x=>x+1)` 的结果？为什么？ | 待复习 |
+| 2026-11-29 | 010 | 1) 为什么 index 作为 key 在重排时会出问题？给一个具体场景。2) key 每次 render 都变会怎样？key 能通过 props 拿到吗？3) React 事件监听器挂在哪里？target vs currentTarget？stopPropagation vs preventDefault？ | 待复习 |
+| 2026-11-29 | 011 | 1) 为什么过滤结果要 render 时派生，而不是放 state？2) 受控 vs 非受控：只写 onChange 不写 value 会怎样？清除筛选时为什么必须受控？3) 列表 key 用什么？index 在过滤/重排时为什么出问题？ | 待复习 |
 | 2026-12-01 | 002 | 1) render/commit 各做什么？2) render 为何必须纯？3) StrictMode 双调用范围与 Effect 处理？ | 待复习 |
 | 2026-12-02 | 003 | 1) Vue 生命周期/指令/样式映射？2) 作用域插槽怎么实现？3) React 19 Context/ref-as-prop 新写法？ | 待复习 |
 | 2026-12-03 | 004 | 1) 19.0–19.3 各解决什么问题？2) Actions 与普通事件处理的区别？3) use() 的 Promise 缓存要求？ | 待复习 |
 | 2026-12-05 | 005 | 1) 四条脚本的职责？2) project references / tsc -b？3) oxlint/ESLint/Biome 选型？ | 待复习 |
+| 2026-12-05 | 006 | 1) Vue 的「细粒度」在哪一层？React 为什么只能组件级重渲染？2) 跳过子组件重渲染的三种手段？useMemo 为什么不算？3) RSC 与 SSR 的区别？Server Component 会 hydrate 吗？ | 待复习 |
+| 2026-12-07 | 007 | 1) `<div>` 和 `<Foo>` 编译后第一个参数差在哪？为什么必须大写？2) Fragment 短语法能加 key 吗？`<Fragment key>` 呢？3) `0 && <X />` 渲染什么？为什么？ | 待复习 |
+| 2026-12-07 | 008 | 1) Vue 的具名插槽、作用域插槽在 React 里怎么写？2) 为什么不能直接调用组件函数？3) children 作为 prop 为什么可能减少重渲染？ | 待复习 |
+| 2026-12-07 | 009 | 1) render/commit 各做什么？commit 四个子阶段？哪个可中断？2) 为什么 render 必须纯？StrictMode 下 render/commit/Effect 各几次（开发/生产）？3) 三次 `setN(n+1)` vs 三次 `setN(x=>x+1)` 的结果？为什么？ | 待复习 |
+| 2026-12-07 | 010 | 1) 为什么 index 作为 key 在重排时会出问题？给一个具体场景。2) key 每次 render 都变会怎样？key 能通过 props 拿到吗？3) React 事件监听器挂在哪里？target vs currentTarget？stopPropagation vs preventDefault？ | 待复习 |
+| 2026-12-07 | 011 | 1) 为什么过滤结果要 render 时派生，而不是放 state？2) 受控 vs 非受控：只写 onChange 不写 value 会怎样？清除筛选时为什么必须受控？3) 列表 key 用什么？index 在过滤/重排时为什么出问题？ | 待复习 |
 
 ## 待解决疑问
 
 | 日期 | 问题 | 结论/状态 |
 |---|---|---|
-| 2026-11-20 | 006 知识地图缺 001 节点句；阶段 0 验收表述待最终确认；闭卷自测未做 | 已留档，下次先收尾 |
+| 2026-11-20 | 006 知识地图缺 001 节点句；阶段 0 验收表述待最终确认；闭卷自测未做 | 已解决（11-20）：001 代填；验收表述通过；自测 3.6/5 已讲评 |
 
 ## 薄弱点与补强
 
@@ -251,8 +275,21 @@
 | 生态（Query/路由/表单/测试） | 知道名字，不清楚边界与选型 | 阶段 3 | 待补 |
 | useEffect 依赖与清理 | 会用，但 cleanup 时机和依赖比较不完整 | Day 020–021 + 复习队列 | 待补 |
 | Context 重渲染 | 误以为只订阅需要的字段即可；内联 value 对象导致所有消费者额外重渲染 | Day 017 + 复习队列 | 已纠正（11-20），Day 017 巩固 |
-| 工程化与 TS 严格项 | Vite 8 dev 转换器（esbuild→Oxc）仍误记；`strict` 8 项只答出 3 项 | Day 005 已讲；Day 006 复盘 + 11-21 复习 | 待补 |
-| 状态快照与不可变更新 | 006 已能区分快照与 hook 链表；React 更新机制（dispatch → 拥有者重渲染 → reconcile → commit）已纠正；快照读取仍需闭卷验证 | Day 013–014 + 每日热身 | 待补 |
+| 工程化与 TS 严格项 | Vite 8 工具分工：预构建归属漏答（应归 Rolldown）；`strict` 8 项只答出 3 项 | Day 005 已讲；11-23 复习 | 待补 |
+| 状态快照与不可变更新 | 009 自测 Q4 机制正确，但「commit 完成后就读到新值」不准确；旧闭包永远读当次快照 | Day 013–014 + 11-23 复习 | 部分掌握（11-22） |
+| Vue/React 更新粒度 | 复述时两次说成「Vue 更新细粒度是组件级」；未说清 React 缺依赖追踪 | 007 热身 + 11-21 复习 | 已纠正（11-20），待复测 |
+| useMemo vs memo | 自测 Q2 把 useMemo 当作跳过子组件重渲染的手段 | Day 027 + 11-23 复习 | 待补 |
+| JSX 编译与组件大小写 | 自测 Q2 没答出「字符串 tag vs 变量引用」 | Day 007 已讲；11-23 复习 | 已复述（11-22） |
+| Fragment 短语法 key | 自测 Q4 说短语法能加 key | Day 007 已讲；11-23 复习 | 已复述（11-22） |
+| 受控组件 | TodoItem 用 `value` 代替 `checked`；011 自测 Q6 把非受控的重置时点说错（重渲染不清空，卸载重挂载才清空） | Day 015 + 11-23 复习 | 部分掌握（11-22） |
+| useMemo 滥用 | 项目 A 对 8 条数据的过滤用 useMemo；selectedTags 每次新数组导致依赖必变 | Day 027 + 11-23 复习 | 已修正（11-22） |
+| 可选 prop 哨兵 | Layout 用 `footer !== null`，修正时又写成 `\|\|` 恒真 | Day 008 + 015 | 已修正（11-22） |
+| 直接调用组件函数 | 自测 Q3 只说跳过 reconcile，没答出 Hooks 挂到父 fiber | Day 025 + 11-23 复习 | 已复述（11-22） |
+| children 优化机制 | 自测 Q5 只说「静态 jsx」；复述时把 bailout 主体说成父组件 | Day 027 + 11-23 复习 | 部分掌握（11-22） |
+| Commit 子阶段 | 自测 Q1 把浏览器绘制算成 commit 子阶段 | Day 087 + 11-23 复习 | 已纠正（11-22），待复测 |
+| 更新函数与批处理 | 自测 Q5 三次 updater 结果写成 4（正确 3）；机制理解正确 | Day 014 + 11-23 复习 | 部分掌握（11-22） |
+| index key 机制 | 自测 Q1 只说「React 认为所有 DOM 可复用」，缺「按位置匹配」的具体机制 | Day 010 已讲；11-23 复习 | 部分掌握（11-22） |
+| 事件委托位置 | 热身时说监听器挂在 fiber 节点；自测 Q3 已答对根容器 | Day 010 已讲；11-23 复习 | 已纠正（11-22），待复测 |
 | Hooks 调用规则 | 006 已能正确解释：hook 状态按调用顺序存在 fiber 链表上，条件调用导致节点错位 | 阶段 5 Hooks 源码深化 | 已纠正（11-20） |
 
 ## 诊断结果（Day 001 填写）
@@ -271,4 +308,9 @@
 | 2026-11-17 | 003 | Vue→React 心智模型 II：组件、组合与生命周期 | ~2h | props/emit/slots/Context；Card + UserCard + ThemeBadge + Modal；纠正 Context 引用与 Hooks 顺序；自测 6.5/10；build 通过 |
 | 2026-11-18 | 004 | React 19.3 全景与生态地图 | ~2h | 19.0–19.3 时间线；Actions/Activity/Compiler/RSC 速览；Activity 实验；个人知识地图；自测 7/10；build 通过 |
 | 2026-11-20 | 005 | 工程基线：Vite + TS + oxlint + Prettier + DevTools | ~2h（跨 11-19/20） | 五层基线；strict/alias/env/scripts；修 ThemeBadge 旧 import；Highlight/Profiler；基线清单；自测 6/10；四项检查全绿 |
-| 2026-11-20 | 006 | 阶段复盘与学习系统校准 | ~1.5h（进行中） | 热身 3.8/5；知识地图 002–005 + 三条因果链；弱项 Top 5；节奏校准（不变 + 默认 3+3）；阶段 0 验收表述草稿；暂停于闭卷自测前 |
+| 2026-11-20 | 006 | 阶段复盘与学习系统校准 | ~2h（跨两次） | 热身 3.8/5；知识地图 + 三条因果链；弱项 Top 5；节奏校准；验收复述通过（修正 Vue 粒度/React 无依赖追踪）；闭卷自测 3.6/5；Vite 工具分工、RSC 水合进复习队列；阶段 0 完成 |
+| 2026-11-22 | 007 | JSX 深入与组件本质 | ~2h（跨 11-20/22） | JSX 编译产物（jsx/jsxs、自动运行时）、组件即函数、大小写/表达式/Fragment；6 组件 + JsxLab；两轮 review 修 key/age=0/checked/footer guard；自测 4.4/6；typecheck/lint/build 通过 |
+| 2026-11-22 | 008 | Props、children 与组合 | ~1.5h | 三种插槽映射；Card/Modal/UserList/SlotLab；修 UserList key 归属 + Card 未使用；自测 3.6/5；直接调用组件函数、children 优化进复习队列 |
+| 2026-11-22 | 009 | 渲染与提交：纯函数、StrictMode、快照 | ~2h | 日志实验：StrictMode render 双调用/commit 一次、挂载 setup→cleanup→setup、子先父后/cleanup 父先子后；children bailout 实证；ImpureDemo dev 2/+2 vs build 1/+1；SnapshotDemo 0/1/3；自测 4.5/6；commit 子阶段与批处理算术进复习 |
+| 2026-11-22 | 010 | 条件渲染、列表、key 与事件 | ~2h | KeyLab index vs id 输入错位实证；ResetWithKey 受控 + key 重置；EventLab capture 外→里/bubble 里→外/stop/prevent；自测 4.5/5；index key 机制与事件委托位置进复习 |
+| 2026-11-22 | 011 | 项目 A：笔记卡片列表 | ~2h | 独立工程 projects/note-cards；组件拆分/受控搜索/派生过滤/空状态/SCSS Modules；review 删除 useMemo、补 trim/计数/key；项目自测 5.1/6；受控/非受控进复习 |

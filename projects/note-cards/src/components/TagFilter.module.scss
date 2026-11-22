@@ -1,0 +1,14 @@
+.tag-filter {
+  display: flex;
+  gap: 8px;
+  .tag-item {
+    font-size: 12px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    cursor: pointer;
+    &.active {
+      border: 1px solid pink;
+      color: pink;
+    }
+  }
+}
