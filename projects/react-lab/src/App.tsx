@@ -1,11 +1,11 @@
-import ControlledRegistrationForm from './components/day015/ControlledRegistrationForm'
-import UncontrolledLoginForm from './components/day015/UncontrolledLoginForm'
+import StatusMachineDemo from './components/day016/StatusMachineDemo'
+import TaskReducerDemo from './components/day016/TaskReducerDemo'
 
 function App() {
   return (
     <div>
-      <ControlledRegistrationForm />
-      <UncontrolledLoginForm />
+      <TaskReducerDemo />
+      <StatusMachineDemo />
     </div>
   )
 }
