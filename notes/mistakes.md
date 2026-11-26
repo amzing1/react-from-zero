@@ -50,6 +50,7 @@
 | 2026-11-25 | 受控输入只写 value | 只说「DOM 和状态不同步」 | 只写 value 不给 onChange → 只读 + 开发警告；value 变 undefined/null → 受控/非受控切换警告 | Day 015 自测 Q2 | 2026-11-26 | 已复述（11-25） |
 | 2026-11-25 | 文件输入非受控 | 忘记原因 | 浏览器安全限制：file input 的 value 只读，JS 不能设置选中文件；只能用 `e.target.files` / FormData | Day 015 自测 Q4 | 2026-11-26 | 已复述（11-25） |
 | 2026-11-25 | v-model 修饰符 | `.lazy` 没答 | `.lazy` 相当于从 input 事件改成 change/失焦；React 用 `onBlur` 或手动控制；trim/number 手动处理 | Day 015 自测 Q5 | 2026-11-26 | 已复述（11-25） |
+| 2026-11-25 | Vue provide/inject vs Context | 简化成「Vue 提供响应式数据」 | Vue provide 可提供任意值；响应式来自 ref/reactive 的追踪。React Context 按 Object.is 比较 value，变化时所有消费者重渲染，无字段级追踪 | Day 017 自测 Q6 | 2026-11-26 | 部分掌握（11-25） |
 | 2026-11-22 | 事件委托位置 | 热身时说监听器挂在 fiber 节点上 | React 17+ 把监听器挂在 createRoot 的根容器 DOM 上；fiber 只是内部数据结构；事件沿 React 树模拟捕获/冒泡 | Day 010 热身 Q3 | 2026-11-23 | 已纠正（11-22） |
 | 2026-11-22 | 受控 vs 非受控 | 认为不写 `value` 时重渲染会把值清空 | 非受控的输入值由 DOM 管；重渲染保留，卸载/重挂载才重置；真正的问题是 state 与 DOM 分叉，清除筛选无法清空输入框 | Day 011 自测 Q6 | 2026-11-23 | 部分掌握（11-22） |
 | 2026-11-22 | useMemo 滥用 | 在 8 条数据的过滤上用 useMemo，且 selectedTags 每次新数组导致依赖必变 | 便宜计算直接算；useMemo 只在计算贵或需要引用稳定时用；React 19 不默认 memo | Day 011 项目 review | 2026-11-23 | 已修正（11-22） |
@@ -69,6 +70,9 @@
 | 受控只写 value | 只读 + 开发警告；undefined 触发切换警告 | 已复述（11-25） |
 | 文件输入 | 只能非受控；value 只读，用 files/FormData | 已复述（11-25） |
 | v-model .lazy | onBlur / change 时机；React 无修饰符 | 已复述（11-25） |
+| Context 内联 value | 每次 render 新对象 → 所有消费者重渲染 | 已掌握（11-25） |
+| memo 挡 context | 不能；context 是独立订阅 | 已掌握（11-25） |
+| state/dispatch 拆分 | dispatch 稳定，只 dispatch 的组件不重渲染 | 已掌握（11-25） |
 
 ### Hooks 与 Effect
 
@@ -119,3 +123,4 @@
 | 2026-11-24 | 013 自测（5 题）+ 11-24 到期复习（3 题） | 013 3.4/5；到期 2.6/3；Q3 嵌套语法、Q4 队列、Q6 生命周期是缺口；补测 Q2/Q3/Q4 正确 | 已写入错题，11-25 重测 Q6/队列 |
 | 2026-11-24 | 014 自测（5 题） | 3.9/5；批处理范围、flushSync 次数是缺口；复述后通过 | 已写入错题，11-25 重测 |
 | 2026-11-25 | 015 自测（6 题） | 3.5/6；只写 value、控件细节、文件输入、.lazy 是缺口；补测通过 | 已写入错题，11-26 重测 |
+| 2026-11-25 | 017 自测（6 题） | 5.6/6；Context 定位/重渲染/优化/memo/state-dispatch 全对；Vue provide/inject 对比需补 | 已写入错题，11-26 复习 |
