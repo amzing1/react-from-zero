@@ -1,0 +1,18 @@
+.task-lab {
+  .task-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    .task-item {
+      border: 1px solid blue;
+      padding: 6px;
+    }
+  }
+  .task-toolbar {
+    .filter-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
+}

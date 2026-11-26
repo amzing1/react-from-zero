@@ -73,6 +73,19 @@
 
 > React 19 补充：`<Context value={...}>` 可以直接作为 Provider；`use(Context)` 允许条件调用，`useContext` 不允许。
 
+### Day 018 补充：Pinia 与 reducer/Context 的细分映射
+
+| Pinia | React（项目 B 的做法） | 关键差异 |
+|---|---|---|
+| `state` | `useReducer` 的 state + Provider | Pinia 可直接改；React 必须返回新对象/新数组 |
+| `getters`（缓存 + 依赖追踪） | render 派生 / selector 纯函数 | React 默认每次 render 重算；需要缓存才上 `useMemo` |
+| `actions`（可异步） | 事件处理 + `dispatch` | 异步在事件/action 内；reducer 始终同步纯函数 |
+| 多模块 store | 多 Context（state / dispatch 拆分） | Context 按 value 引用通知，无字段级订阅 |
+| `storeToRefs` | 无完全等价物 | 消费者读整个 Context value；要细粒度用 selector 型 store（Zustand） |
+| 模块级单例 | Provider 树内作用域 | Context 可嵌套不同 Provider，天然多实例 |
+
+一句判断：**需要跨组件共享、多个事件修改**的状态用 reducer + Context（或状态库）；只服务某个面板 UI 的筛选条件留在本地。
+
 ## 三、生命周期对照
 
 | Vue | React | 说明 |

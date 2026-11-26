@@ -50,14 +50,18 @@
 | 2026-11-25 | 受控输入只写 value | 只说「DOM 和状态不同步」 | 只写 value 不给 onChange → 只读 + 开发警告；value 变 undefined/null → 受控/非受控切换警告 | Day 015 自测 Q2 | 2026-11-26 | 已复述（11-25） |
 | 2026-11-25 | 文件输入非受控 | 忘记原因 | 浏览器安全限制：file input 的 value 只读，JS 不能设置选中文件；只能用 `e.target.files` / FormData | Day 015 自测 Q4 | 2026-11-26 | 已复述（11-25） |
 | 2026-11-25 | v-model 修饰符 | `.lazy` 没答 | `.lazy` 相当于从 input 事件改成 change/失焦；React 用 `onBlur` 或手动控制；trim/number 手动处理 | Day 015 自测 Q5 | 2026-11-26 | 已复述（11-25） |
-| 2026-11-25 | Vue provide/inject vs Context | 简化成「Vue 提供响应式数据」 | Vue provide 可提供任意值；响应式来自 ref/reactive 的追踪。React Context 按 Object.is 比较 value，变化时所有消费者重渲染，无字段级追踪 | Day 017 自测 Q6 | 2026-11-26 | 部分掌握（11-25） |
+| 2026-11-25 | Vue provide/inject vs Context | 简化成「Vue 提供响应式数据」；11-26 复测仍未答出 provide 本身不响应式、Context 按引用通知 | Vue provide 可提供任意值，provide/inject 本身不产生响应式；响应式来自 ref/reactive 的追踪。React Context 按 Object.is 比较 value，变化时所有消费者重渲染，无字段级追踪 | Day 017 自测 Q6；Day 018 热身 Q1 | 2026-11-29 | 未掌握（11-26 复测） |
 | 2026-11-22 | 事件委托位置 | 热身时说监听器挂在 fiber 节点上 | React 17+ 把监听器挂在 createRoot 的根容器 DOM 上；fiber 只是内部数据结构；事件沿 React 树模拟捕获/冒泡 | Day 010 热身 Q3 | 2026-11-23 | 已纠正（11-22） |
 | 2026-11-22 | 受控 vs 非受控 | 认为不写 `value` 时重渲染会把值清空 | 非受控的输入值由 DOM 管；重渲染保留，卸载/重挂载才重置；真正的问题是 state 与 DOM 分叉，清除筛选无法清空输入框 | Day 011 自测 Q6 | 2026-11-23 | 部分掌握（11-22） |
 | 2026-11-22 | useMemo 滥用 | 在 8 条数据的过滤上用 useMemo，且 selectedTags 每次新数组导致依赖必变 | 便宜计算直接算；useMemo 只在计算贵或需要引用稳定时用；React 19 不默认 memo | Day 011 项目 review | 2026-11-23 | 已修正（11-22） |
 | 2026-11-25 | reducer 纯度与 StrictMode | 补测只说"不重渲染/多两条数据"，没说出同引用 bailout 与双调用目的 | reducer 返回同引用 → Object.is 相等 → bailout；StrictMode 开发环境故意双调用，让副作用翻倍暴露纯度问题 | Day 016 补测 Q1 | 2026-11-26 | 已复述（11-25） |
 | 2026-11-25 | never 与状态机 | 把 never 当成"消灭不可能状态"的工具 | 消灭不可能状态靠互斥联合成员 + 数据随状态走；never 只做编译期穷尽检查 | Day 016 自测 Q4 / 补测 Q2 | 2026-11-26 | 已复述（11-25） |
-| 2026-11-25 | dispatch 队列语义 | 以为 dispatch 立刻执行 reducer；认为执行次数固定 | dispatch 把 action 排队，下一次 render 按顺序处理；生产环境可能含 eager 计算，调用次数不是 API 保证 | Day 016 补测 Q3 | 2026-11-26 | 部分掌握（11-25） |
+| 2026-11-25 | dispatch 队列语义 | 以为 dispatch 立刻执行 reducer；认为执行次数固定；11-26 复测说两次 dispatch reducer 只执行 1 次 | dispatch 把 action 排队，下一次 render 按顺序处理（两个 action 概念上各处理一次）；eager 计算 / StrictMode 使调用次数不是 API 保证 | Day 016 补测 Q3；Day 018 热身 Q2 | 2026-11-29 | 部分掌握（11-26 复测：render 对、reducer 次数错） |
 | 2026-11-25 | reducer 内生成随机 id | reducer 里调用 crypto.randomUUID() | 违反"同输入同输出"；StrictMode 双调用生成两个 id；id 在事件处理函数生成并随 action 传入 | Day 016 代码 review | 2026-11-26 | 已修正（11-25） |
+| 2026-11-26 | 状态分区判据 | 用「变化频率」解释任务数据放 Context、筛选放本地 | 首要判据是共享范围 / 所有权：任务数据被多组件读写、多事件修改 → reducer + Context；筛选只服务面板 UI、离开即重置 → 本地；频率是次要因素 | Day 018 自测 Q1 | 2026-11-27 | 待复习 |
+| 2026-11-26 | 「不订阅 Context」≠「不重渲染」 | 认为没订阅 Context 的 TaskItem 不会重渲染 | TaskBoard 订阅 tasks 后重渲染，TaskList / TaskItem 作为子组件被父级重渲染带动；Composer 不重渲染靠稳定 children + 稳定 dispatch | Day 018 自测 Q4 | 2026-11-27 | 待复习 |
+| 2026-11-26 | Pinia actions 的映射 | 把 Pinia actions 直接等同于 dispatch | actions ≈ 事件处理 + dispatch；异步在事件 / action 内，reducer 始终同步纯函数；getters 有缓存，render 派生每次重算 | Day 018 自测 Q5 | 2026-11-27 | 待复习 |
+| 2026-11-26 | 编辑草稿直接绑 store | 只答「每个 task 都要维护副本」，没说出两种坏结局 | 直接绑 task：① 输入即 mutate，违反不可变；② 每字符 dispatch，全局重渲染且无法取消。本地副本让编辑事务化：保存一次提交，取消即丢弃 | Day 018 自测 Q6 | 2026-11-27 | 待复习 |
 
 ## 高频错误清单
 
@@ -77,6 +81,10 @@
 | Context 内联 value | 每次 render 新对象 → 所有消费者重渲染 | 已掌握（11-25） |
 | memo 挡 context | 不能；context 是独立订阅 | 已掌握（11-25） |
 | state/dispatch 拆分 | dispatch 稳定，只 dispatch 的组件不重渲染 | 已掌握（11-25） |
+| 状态分区判据 | 共享范围 / 所有权优先；频率是次要因素 | 待复习（11-26） |
+| 不订阅 Context ≠ 不重渲染 | 父级重渲染带动子树；跳过需稳定元素 / memo | 待复习（11-26） |
+| 编辑草稿 | 本地副本；保存提交、取消丢弃 | 待复习（11-26） |
+| Pinia actions | ≈ 事件处理 + dispatch；异步不进 reducer | 待复习（11-26） |
 
 ### Hooks 与 Effect
 
@@ -130,3 +138,4 @@
 | 2026-11-24 | 014 自测（5 题） | 3.9/5；批处理范围、flushSync 次数是缺口；复述后通过 | 已写入错题，11-25 重测 |
 | 2026-11-25 | 015 自测（6 题） | 3.5/6；只写 value、控件细节、文件输入、.lazy 是缺口；补测通过 | 已写入错题，11-26 重测 |
 | 2026-11-25 | 017 自测（6 题） | 5.6/6；Context 定位/重渲染/优化/memo/state-dispatch 全对；Vue provide/inject 对比需补 | 已写入错题，11-26 复习 |
+| 2026-11-26 | 018 自测（6 题）+ 11-26 到期热身 | 自测 4.4/6；Q1 判据、Q4 重渲染机制、Q5 actions 映射、Q6 编辑草稿是缺口；热身 3.3/5（Q2 reducer 次数、Q1 Vue 对比仍不完整） | 已写入错题，11-27 重测 Q1/Q4/Q5/Q6；017 Q1 11-29 再测 |
