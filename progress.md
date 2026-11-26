@@ -8,7 +8,7 @@
 
 - **当前阶段**：阶段 1 · React 核心
 - **下一个课时**：019 · useRef、DOM 与 useImperativeHandle
-- **进行中**：无
+- **进行中**：019 · useRef、DOM 与 useImperativeHandle（3/6 demo 完成；待 Media / Imperative / RefLab + 自测）
 - **已完成**：18 / 108
 - **连续学习**：5 天（11-22 至 11-26；11-21 中断）
 - **开始日期**：2026-11-15
@@ -62,7 +62,7 @@
 
 **第 4 周 · Effect、Ref 与自定义 Hook**
 
-- [ ] 019 · useRef、DOM 与 useImperativeHandle
+- [ ] 019 · useRef、DOM 与 useImperativeHandle（2026-11-26 进行中：RefVsState/Focus/Measure 完成；待 Media/Imperative/RefLab + 自测）
 - [ ] 020 · useEffect 深入 I：依赖、清理、闭包、竞态
 - [ ] 021 · useEffect 深入 II：你可能不需要 Effect、useEffectEvent
 - [ ] 022 · 自定义 Hook 设计与 VueUse 对比
@@ -295,6 +295,7 @@
 | 2026-11-20 | 006 知识地图缺 001 节点句；阶段 0 验收表述待最终确认；闭卷自测未做 | 已解决（11-20）：001 代填；验收表述通过；自测 3.6/5 已讲评 |
 | 2026-11-25 | 复习队列积压：11-25 到期的 004/007-011 未做 | 顺延；11-26 优先 015/013/014，其余分批进热身 |
 | 2026-11-26 | 11-26 到期复习：015/016/017 与顺延 013/014/003 | 热身覆盖 013/014/015/016/017 部分；003 与其余子题顺延，分批进热身 |
+| 2026-11-26 | 019 暂停：前三个 demo 完成，Media / Imperative / RefLab / 自测未做 | 下次先收尾 019，再进 020 |
 
 ## 薄弱点与补强
 
@@ -317,7 +318,7 @@
 | 受控组件 | 011 Q6 曾把非受控重置时点说错；015 自测 Q2/Q3 细节不全，补测通过 | Day 017 + 复习 | 已巩固（11-25），细节待复测 |
 | 文件输入 | 015 Q4 忘记原因；补测已答出 value 只读/安全限制 | Day 019 + 复习 | 已复述（11-25） |
 | v-model 修饰符 | 015 Q5 `.lazy` 未答；补测 onBlur | Day 015 已讲；11-26 复习 | 已复述（11-25） |
-| Vue provide/inject vs Context | 017 Q6 简化成「Vue 提供响应式数据」；11-26 复测仍未答出 provide 本身不响应式、Context 按引用通知全体消费者 | 11-29 复习 + Day 017 | 未掌握（11-26 复测） |
+| Vue provide/inject vs Context | 017 Q6 简化；11-26 第二次热身答出「响应式来自 ref/reactive，与 provide 无关」，但 Context 按 Object.is 通知全体消费者仍未提 | 11-29 复习 + Day 017 | 部分纠正（11-26） |
 | useMemo 滥用 | 项目 A 对 8 条数据的过滤用 useMemo；selectedTags 每次新数组导致依赖必变 | Day 027 + 11-23 复习 | 已修正（11-22） |
 | 可选 prop 哨兵 | Layout 用 `footer !== null`，修正时又写成 `\|\|` 恒真 | Day 008 + 015 | 已修正（11-22） |
 | 直接调用组件函数 | 自测 Q3 只说跳过 reconcile，没答出 Hooks 挂到父 fiber | Day 025 + 11-23 复习 | 已掌握（11-23，Q2 正确） |
@@ -336,6 +337,9 @@
 | Context 重渲染机制 | 018 自测 Q4 把「不订阅 Context」与「不重渲染」混同 | 018 复习 + Day 027 | 部分掌握（11-26） |
 | Pinia actions 映射 | 018 自测 Q5 把 actions 直接等同 dispatch | 018 复习 | 部分掌握（11-26） |
 | 编辑草稿本地化 | 018 自测 Q6 未答出直接绑 task 的两种坏结局 | 018 复习 | 部分掌握（11-26） |
+| render 期间读 ref | 019 RefVsStateLab 在 JSX 中直接读 countRef.current | 019 收尾修正 + 复习 | 待修正（11-26） |
+| ref callback cleanup | 019 FocusLab 返回 cleanup 但未清空 object ref，attach 日志为空 | 019 收尾修正 | 待修正（11-26） |
+| useRef 参数求值 | 019 检查点答「保存函数地址」；未说出实参每次 render 求值 | 019 自测 + 复习 | 部分掌握（11-26） |
 
 ## 诊断结果（Day 001 填写）
 
@@ -366,3 +370,4 @@
 | 2026-11-25 | 016 | useReducer 与状态机思维 | 另一台电脑完成 | 代码已提交（fix: 016 over），TaskReducerDemo/StatusMachineDemo 通过检查；progress 本次补记；自测/细节记录待同步 |
 | 2026-11-25 | 017 | Context 与 provide/inject | ~1.5h | Theme/User Context（null 默认 + 抛错 hook、useMemo value）；Task state/dispatch 拆分实验（TaskList 重渲染、TaskAddButton 不重渲染）；自测 5.6/6；Vue provide/inject 对比需补 |
 | 2026-11-26 | 018 | 项目 B（上）：任务管理面板 | ~2h | 独立工程 projects/task-board；状态分区、reducer+Context 拆分、组合筛选、派生统计、行内编辑；Provider/Composer 实验；自测 4.4/6；typecheck/lint/build 通过 |
+| 2026-11-26 | 019 | useRef、DOM 与 useImperativeHandle | ~1h（暂停） | 热身 3.8/5；RefVsState/Focus/Measure 三个 demo；review 指出 render 读 ref、cleanup 未置 null；待 Media/Imperative/RefLab/自测/检查 |
