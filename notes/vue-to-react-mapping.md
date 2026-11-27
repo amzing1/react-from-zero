@@ -86,6 +86,18 @@
 
 一句判断：**需要跨组件共享、多个事件修改**的状态用 reducer + Context（或状态库）；只服务某个面板 UI 的筛选条件留在本地。
 
+### Day 020 补充：watch / watchEffect 与 useEffect
+
+| Vue | React | 关键差异 |
+|---|---|---|
+| `watch(source, cb)` | `useEffect(setup, deps)` | Vue 显式声明 source；React 手动列 deps，按 `Object.is` 比较 |
+| `watchEffect(cb)` | 无直接等价 | Vue 自动收集依赖；React 必须手动列依赖 |
+| `watch(..., { immediate: true })` | 默认挂载后执行 | React Effect 没有"非立即"模式 |
+| watch 回调的 `onCleanup` | Effect cleanup | 下一次执行前调用 |
+| `flush: 'post'` | `useEffect`（绘制后） | 大体对应；`flush: 'pre'` 无直接等价 |
+| `onMounted` / `onUnmounted` | `useEffect(..., [])` + cleanup | React 用同一套机制 |
+| 自动依赖追踪 | 手动依赖数组 | 引用变化也会触发 React Effect；Vue 按属性依赖触发 |
+
 ## 三、生命周期对照
 
 | Vue | React | 说明 |

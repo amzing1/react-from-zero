@@ -1,5 +1,6 @@
 import { useMemo, useState, type ReactNode } from 'react'
-import { type User, UserContext } from './UserContext'
+import { UserContext } from './UserContext'
+import type { User } from './types'
 
 const UserProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User>({

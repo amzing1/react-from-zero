@@ -7,12 +7,12 @@
 ## 当前状态
 
 - **当前阶段**：阶段 1 · React 核心
-- **下一个课时**：019 · useRef、DOM 与 useImperativeHandle
-- **进行中**：019 · useRef、DOM 与 useImperativeHandle（3/6 demo 完成；待 Media / Imperative / RefLab + 自测）
-- **已完成**：18 / 108
-- **连续学习**：5 天（11-22 至 11-26；11-21 中断）
+- **下一个课时**：021 · useEffect 深入 II：你可能不需要 Effect、useEffectEvent
+- **进行中**：无
+- **已完成**：20 / 108
+- **连续学习**：6 天（11-22 至 11-27；11-21 中断）
 - **开始日期**：2026-11-15
-- **最近更新**：2026-11-26
+- **最近更新**：2026-11-27
 - **计划周期**：18 周（每天约 2 小时，每周 6 天）
 
 ## 阶段进度
@@ -20,7 +20,7 @@
 | 阶段 | 课时范围 | 完成 |
 |---|---|---|
 | 0 · 起跑 | 001–006 | 6 / 6 ✅ |
-| 1 · React 核心 | 007–030 | 12 / 24 |
+| 1 · React 核心 | 007–030 | 14 / 24 |
 | 2 · 并发与新范式 | 031–042 | 0 / 12 |
 | 3 · 生态与工程化 | 043–066 | 0 / 24 |
 | 4 · Next.js 与 RSC | 067–078 | 0 / 12 |
@@ -62,8 +62,8 @@
 
 **第 4 周 · Effect、Ref 与自定义 Hook**
 
-- [ ] 019 · useRef、DOM 与 useImperativeHandle（2026-11-26 进行中：RefVsState/Focus/Measure 完成；待 Media/Imperative/RefLab + 自测）
-- [ ] 020 · useEffect 深入 I：依赖、清理、闭包、竞态
+- [x] 019 · useRef、DOM 与 useImperativeHandle（2026-11-27 完成；自测 5.1/6；typecheck/lint/build 通过）
+- [x] 020 · useEffect 深入 I：依赖、清理、闭包、竞态（2026-11-27 完成；自测 5.3/6；typecheck/lint/build 通过）
 - [ ] 021 · useEffect 深入 II：你可能不需要 Effect、useEffectEvent
 - [ ] 022 · 自定义 Hook 设计与 VueUse 对比
 - [ ] 023 · Error Boundary、Suspense、lazy
@@ -251,10 +251,10 @@
 | 2026-11-26 | 015 | 1) 受控 vs 非受控的区别？文件输入为什么必须非受控？2) 多字段 state 怎么组织？checkbox/radio/select/textarea 各注意什么？3) `v-model` 对应什么？`.trim`/`.number`/`.lazy` 怎么实现？错误对象为什么不进 state？ | 部分完成（11-26 热身 Q3 文件输入正确；只写 value 的警告未答出，顺延） |
 | 2026-11-26 | 016 | 1) useState vs useReducer 怎么选？reducer 适合哪几类场景？2) reducer 为什么必须纯？StrictMode 双调用会暴露什么？连续两次 dispatch，render 几次、reducer 执行几次？3) 判别联合怎么消灭不可能状态？`never` 负责什么？非法转移在哪一层处理？ | 部分完成（11-26 热身 Q2 render 1 次正确；reducer 次数仍答错，顺延） |
 | 2026-11-26 | 017 | 1) Context value 变化时哪些组件重渲染？内联 value 的问题？三种优化？2) React.memo 能阻止 context 更新吗？为什么？3) Context + useReducer 为什么拆 state/dispatch？Vue provide/inject 与 React Context 的差异？ | 部分完成（11-26 热身 Q1 Vue 对比仍不完整，11-29 再测） |
-| 2026-11-27 | 005 | 1) 环境变量加载 + strictImportMetaEnv？2) 五层基线/初始化 checklist？3) Profiler 如何定位重渲染？ | 待复习 |
-| 2026-11-27 | 006 | 1) Vue 的「细粒度」在哪一层？React 为什么只能组件级重渲染？2) 跳过子组件重渲染的三种手段？useMemo 为什么不算？3) RSC 与 SSR 的区别？Server Component 会 hydrate 吗？ | 待复习 |
-| 2026-11-27 | 013 | 1) `useState(expensive())` vs `useState(() => expensive())` 执行次数？StrictMode 差异？2) 为什么直接改 state 不触发更新？Object.is 起什么作用？嵌套对象怎么写不可变更新？3) 三次 `setN(n+1)` vs 三次 `setN(x=>x+1)` 从 0 开始的结果？写出队列过程。 | 待复习 |
-| 2026-11-27 | 014 | 1) 自动批处理覆盖哪些场景？React 17 vs 18+ 的区别？2) flushSync 做什么？两次独立调用 render 几次？代价是什么？3) 两个兄弟组件共享状态时 state 放哪？提升太高有什么问题？ | 待复习 |
+| 2026-11-27 | 005 | 1) 环境变量加载 + strictImportMetaEnv？2) 五层基线/初始化 checklist？3) Profiler 如何定位重渲染？ | 未完成，顺延（11-27 未覆盖） |
+| 2026-11-27 | 006 | 1) Vue 的「细粒度」在哪一层？React 为什么只能组件级重渲染？2) 跳过子组件重渲染的三种手段？useMemo 为什么不算？3) RSC 与 SSR 的区别？Server Component 会 hydrate 吗？ | 未完成，顺延（11-27 未覆盖） |
+| 2026-11-27 | 013 | 1) `useState(expensive())` vs `useState(() => expensive())` 执行次数？StrictMode 差异？2) 为什么直接改 state 不触发更新？Object.is 起什么作用？嵌套对象怎么写不可变更新？3) 三次 `setN(n+1)` vs 三次 `setN(x=>x+1)` 从 0 开始的结果？写出队列过程。 | 未完成，顺延（11-27 未覆盖） |
+| 2026-11-27 | 014 | 1) 自动批处理覆盖哪些场景？React 17 vs 18+ 的区别？2) flushSync 做什么？两次独立调用 render 几次？代价是什么？3) 两个兄弟组件共享状态时 state 放哪？提升太高有什么问题？ | 未完成，顺延（11-27 未覆盖） |
 | 2026-11-28 | 015 | 1) 受控 vs 非受控的区别？文件输入为什么必须非受控？2) 多字段 state 怎么组织？checkbox/radio/select/textarea 各注意什么？3) `v-model` 对应什么？`.trim`/`.number`/`.lazy` 怎么实现？错误对象为什么不进 state？ | 待复习 |
 | 2026-11-28 | 016 | 1) useState vs useReducer？什么时候该用 reducer？2) reducer 为什么必须纯？StrictMode 如何检查？3) 状态机思维：判别联合怎么消灭不可能状态？ | 待复习 |
 | 2026-11-28 | 017 | 1) Context value 变化时哪些组件重渲染？内联 value 的问题？三种优化？2) React.memo 能阻止 context 更新吗？为什么？3) Context + useReducer 为什么拆 state/dispatch？Vue provide/inject 与 React Context 的差异？ | 待复习 |
@@ -283,10 +283,18 @@
 | 2026-12-10 | 015 | 1) 受控 vs 非受控的区别？文件输入为什么必须非受控？2) 多字段 state 怎么组织？checkbox/radio/select/textarea 各注意什么？3) `v-model` 对应什么？`.trim`/`.number`/`.lazy` 怎么实现？错误对象为什么不进 state？ | 待复习 |
 | 2026-12-10 | 016 | 1) useState vs useReducer？什么时候该用 reducer？2) reducer 为什么必须纯？StrictMode 如何检查？3) 状态机思维：判别联合怎么消灭不可能状态？ | 待复习 |
 | 2026-12-10 | 017 | 1) Context value 变化时哪些组件重渲染？内联 value 的问题？三种优化？2) React.memo 能阻止 context 更新吗？为什么？3) Context + useReducer 为什么拆 state/dispatch？Vue provide/inject 与 React Context 的差异？ | 待复习 |
-| 2026-11-27 | 018 | 1) 任务数据 / 筛选条件 / 表单草稿 / 派生值各放哪里？判据是什么？为什么频率不是首要判据？2) 一次「前进」会重渲染哪些组件？TaskItem 没订阅 Context 为什么也重渲染？Composer 为什么不会？3) 编辑为什么用本地草稿？直接绑 task 的两种坏结局？ | 待复习 |
+| 2026-11-27 | 018 | 1) 任务数据 / 筛选条件 / 表单草稿 / 派生值各放哪里？判据是什么？为什么频率不是首要判据？2) 一次「前进」会重渲染哪些组件？TaskItem 没订阅 Context 为什么也重渲染？Composer 为什么不会？3) 编辑为什么用本地草稿？直接绑 task 的两种坏结局？ | 部分完成（11-27 热身：Q1 判据仍弱、Q2 正确；Q3 编辑草稿顺延） |
 | 2026-11-29 | 018 | 1) 任务数据 / 筛选条件 / 表单草稿 / 派生值各放哪里？判据是什么？为什么频率不是首要判据？2) 一次「前进」会重渲染哪些组件？TaskItem 没订阅 Context 为什么也重渲染？Composer 为什么不会？3) 编辑为什么用本地草稿？直接绑 task 的两种坏结局？ | 待复习 |
 | 2026-12-03 | 018 | 1) 任务数据 / 筛选条件 / 表单草稿 / 派生值各放哪里？判据是什么？为什么频率不是首要判据？2) 一次「前进」会重渲染哪些组件？TaskItem 没订阅 Context 为什么也重渲染？Composer 为什么不会？3) 编辑为什么用本地草稿？直接绑 task 的两种坏结局？ | 待复习 |
 | 2026-12-11 | 018 | 1) 任务数据 / 筛选条件 / 表单草稿 / 派生值各放哪里？判据是什么？为什么频率不是首要判据？2) 一次「前进」会重渲染哪些组件？TaskItem 没订阅 Context 为什么也重渲染？Composer 为什么不会？3) 编辑为什么用本地草稿？直接绑 task 的两种坏结局？ | 待复习 |
+| 2026-11-28 | 019 | 1) useRef vs useState：为什么改 ref.current 不触发渲染？useRef(expensive()) 与 useState(() => expensive()) 的求值差异？state/ref/普通变量各适合什么？2) DOM ref 何时赋值？render 为什么不能读写？ref callback cleanup 在 React 19 / StrictMode 下的行为？3) React 19 ref-as-prop 与 forwardRef；useImperativeHandle 的适用场景与依赖数组；Vue ref()/模板 ref/defineExpose 的对应？ | 待复习 |
+| 2026-11-30 | 019 | 1) useRef vs useState：为什么改 ref.current 不触发渲染？useRef(expensive()) 与 useState(() => expensive()) 的求值差异？state/ref/普通变量各适合什么？2) DOM ref 何时赋值？render 为什么不能读写？ref callback cleanup 在 React 19 / StrictMode 下的行为？3) React 19 ref-as-prop 与 forwardRef；useImperativeHandle 的适用场景与依赖数组；Vue ref()/模板 ref/defineExpose 的对应？ | 待复习 |
+| 2026-12-04 | 019 | 1) useRef vs useState：为什么改 ref.current 不触发渲染？useRef(expensive()) 与 useState(() => expensive()) 的求值差异？state/ref/普通变量各适合什么？2) DOM ref 何时赋值？render 为什么不能读写？ref callback cleanup 在 React 19 / StrictMode 下的行为？3) React 19 ref-as-prop 与 forwardRef；useImperativeHandle 的适用场景与依赖数组；Vue ref()/模板 ref/defineExpose 的对应？ | 待复习 |
+| 2026-12-12 | 019 | 1) useRef vs useState：为什么改 ref.current 不触发渲染？useRef(expensive()) 与 useState(() => expensive()) 的求值差异？state/ref/普通变量各适合什么？2) DOM ref 何时赋值？render 为什么不能读写？ref callback cleanup 在 React 19 / StrictMode 下的行为？3) React 19 ref-as-prop 与 forwardRef；useImperativeHandle 的适用场景与依赖数组；Vue ref()/模板 ref/defineExpose 的对应？ | 待复习 |
+| 2026-11-28 | 020 | 1) useEffect 依赖比较规则：不传 / [] / [a,b]？内联对象/函数为什么每次执行？ref.current 为什么不算依赖？2) cleanup 时机？StrictMode 挂载 setup→cleanup→setup 的目的？闭包陷阱三种解法？3) 请求竞态怎么产生？ignore flag 与 AbortController 的区别？useEffect 与 useLayoutEffect 的选型？ | 待复习 |
+| 2026-11-30 | 020 | 1) useEffect 依赖比较规则：不传 / [] / [a,b]？内联对象/函数为什么每次执行？ref.current 为什么不算依赖？2) cleanup 时机？StrictMode 挂载 setup→cleanup→setup 的目的？闭包陷阱三种解法？3) 请求竞态怎么产生？ignore flag 与 AbortController 的区别？useEffect 与 useLayoutEffect 的选型？ | 待复习 |
+| 2026-12-04 | 020 | 1) useEffect 依赖比较规则：不传 / [] / [a,b]？内联对象/函数为什么每次执行？ref.current 为什么不算依赖？2) cleanup 时机？StrictMode 挂载 setup→cleanup→setup 的目的？闭包陷阱三种解法？3) 请求竞态怎么产生？ignore flag 与 AbortController 的区别？useEffect 与 useLayoutEffect 的选型？ | 待复习 |
+| 2026-12-12 | 020 | 1) useEffect 依赖比较规则：不传 / [] / [a,b]？内联对象/函数为什么每次执行？ref.current 为什么不算依赖？2) cleanup 时机？StrictMode 挂载 setup→cleanup→setup 的目的？闭包陷阱三种解法？3) 请求竞态怎么产生？ignore flag 与 AbortController 的区别？useEffect 与 useLayoutEffect 的选型？ | 待复习 |
 
 ## 待解决疑问
 
@@ -295,7 +303,8 @@
 | 2026-11-20 | 006 知识地图缺 001 节点句；阶段 0 验收表述待最终确认；闭卷自测未做 | 已解决（11-20）：001 代填；验收表述通过；自测 3.6/5 已讲评 |
 | 2026-11-25 | 复习队列积压：11-25 到期的 004/007-011 未做 | 顺延；11-26 优先 015/013/014，其余分批进热身 |
 | 2026-11-26 | 11-26 到期复习：015/016/017 与顺延 013/014/003 | 热身覆盖 013/014/015/016/017 部分；003 与其余子题顺延，分批进热身 |
-| 2026-11-26 | 019 暂停：前三个 demo 完成，Media / Imperative / RefLab / 自测未做 | 下次先收尾 019，再进 020 |
+| 2026-11-26 | 019 暂停：前三个 demo 完成，Media / Imperative / RefLab / 自测未做 | 已收尾（11-27）：5 个 demo、自测 5.1/6、检查通过 |
+| 2026-11-27 | 11-27 到期 005/006/013/014 未覆盖；018 仅覆盖 Q1/Q2 | 顺延分批进热身；018 Q1 已于 020 热身答对，Q3 11-29 再测 |
 
 ## 薄弱点与补强
 
@@ -304,7 +313,7 @@
 | 现代 React（并发/Actions/RSC） | Actions/useOptimistic/use/RSC 仅知道名词；Activity 跑过 demo | 阶段 2/4 正常推进 + 每日热身 | 待补 |
 | 底层原理（Commit/Scheduler/Suspense） | Commit 子阶段混淆；Scheduler/Suspense 不清楚 | 阶段 5；Day 023/039 预热 | 待补 |
 | 生态（Query/路由/表单/测试） | 知道名字，不清楚边界与选型 | 阶段 3 | 待补 |
-| useEffect 依赖与清理 | 会用，但 cleanup 时机和依赖比较不完整 | Day 020–021 + 复习队列 | 待补 |
+| useEffect 依赖与清理 | 会用，但 cleanup 时机和依赖比较不完整 | Day 020–021 + 复习队列 | 已纠正（11-27，020 自测 5.3/6；内联依赖表述待补） |
 | Context 重渲染 | 误以为只订阅需要的字段即可；内联 value 对象导致所有消费者额外重渲染 | Day 017 + 复习队列 | 已纠正（11-20），Day 017 巩固 |
 | 工程化与 TS 严格项 | Vite 8 工具分工：预构建归属漏答（应归 Rolldown）；`strict` 8 项只答出 3 项 | Day 005 已讲；11-23 复习 | 待补 |
 | 状态快照与不可变更新 | 012 Q4 快照读旧值解释正确；013 Q2 补测已说出 Object.is | Day 013–014 | 已掌握（11-24） |
@@ -333,13 +342,15 @@
 | reducer 纯度与 StrictMode | 补测只说现象，没说出同引用 bailout 与双调用目的 | Day 016 已讲；11-26 复习 | 已纠正（11-25） |
 | never 的职责 | 把 never 当成消灭不可能状态的工具 | Day 016 已讲；11-26 复习 | 已纠正（11-25） |
 | dispatch 队列语义 | 以为 dispatch 立刻执行 reducer、执行次数固定；11-26 复测 render 1 次对、reducer 次数仍错 | Day 016 已讲；11-29 复习；Day 020/089 深化 | 部分掌握（11-26 复测） |
-| 状态分区判据 | 018 自测 Q1 只用「变化频率」解释 | 018 复习 + 019 热身 | 部分掌握（11-26） |
-| Context 重渲染机制 | 018 自测 Q4 把「不订阅 Context」与「不重渲染」混同 | 018 复习 + Day 027 | 部分掌握（11-26） |
+| 状态分区判据 | 018 自测 Q1 只用「变化频率」；11-27 020 热身完整答出判据 | 11-29 复习 | 已纠正（11-27） |
+| Context 重渲染机制 | 018 自测 Q4 混同；11-27 复测机制正确，漏「稳定 children」 | 11-29 复习 + Day 027 | 部分纠正（11-27） |
 | Pinia actions 映射 | 018 自测 Q5 把 actions 直接等同 dispatch | 018 复习 | 部分掌握（11-26） |
-| 编辑草稿本地化 | 018 自测 Q6 未答出直接绑 task 的两种坏结局 | 018 复习 | 部分掌握（11-26） |
-| render 期间读 ref | 019 RefVsStateLab 在 JSX 中直接读 countRef.current | 019 收尾修正 + 复习 | 待修正（11-26） |
-| ref callback cleanup | 019 FocusLab 返回 cleanup 但未清空 object ref，attach 日志为空 | 019 收尾修正 | 待修正（11-26） |
-| useRef 参数求值 | 019 检查点答「保存函数地址」；未说出实参每次 render 求值 | 019 自测 + 复习 | 部分掌握（11-26） |
+| 编辑草稿本地化 | 018 自测 Q6 未答出两种坏结局；11-27 复测只答出一种 | 11-29 复习 | 部分掌握（11-27） |
+| render 期间读 ref | 019 RefVsStateLab 在 JSX 中直接读 countRef.current | 019 收尾修正 + 复习 | 已修正（11-27，state 快照） |
+| ref callback cleanup | 019 FocusLab 返回 cleanup 但未清空 object ref，attach 日志为空 | 019 收尾修正 | 已修正（11-27，cleanup 置 null） |
+| useRef 参数求值 | 019 检查点答「保存函数地址」；11-27 020 热身已完整答对 | 11-28 复习 | 已复述（11-27） |
+| 内联对象 / 函数依赖 | 020 自测 Q1 只答比较规则，没答引用变化导致每次执行 | 021 + 11-28 复习 | 部分掌握（11-27） |
+| 媒体状态同步 | 11-27 热身 Q5 答「每次调用手动同步」，忽略 play() Promise 拒绝与事件驱动 | 019 复习 + Day 020 | 已修正（11-27，代码） |
 
 ## 诊断结果（Day 001 填写）
 
@@ -371,3 +382,5 @@
 | 2026-11-25 | 017 | Context 与 provide/inject | ~1.5h | Theme/User Context（null 默认 + 抛错 hook、useMemo value）；Task state/dispatch 拆分实验（TaskList 重渲染、TaskAddButton 不重渲染）；自测 5.6/6；Vue provide/inject 对比需补 |
 | 2026-11-26 | 018 | 项目 B（上）：任务管理面板 | ~2h | 独立工程 projects/task-board；状态分区、reducer+Context 拆分、组合筛选、派生统计、行内编辑；Provider/Composer 实验；自测 4.4/6；typecheck/lint/build 通过 |
 | 2026-11-26 | 019 | useRef、DOM 与 useImperativeHandle | ~1h（暂停） | 热身 3.8/5；RefVsState/Focus/Measure 三个 demo；review 指出 render 读 ref、cleanup 未置 null；待 Media/Imperative/RefLab/自测/检查 |
+| 2026-11-27 | 019 | useRef、DOM 与 useImperativeHandle（收尾） | ~1.5h | 热身 3.9/5；完成 Media/Imperative/FancyInput，媒体状态改事件驱动；自测 5.1/6；typecheck/lint/build 通过 |
+| 2026-11-27 | 020 | useEffect 深入 I：依赖、清理、闭包、竞态 | ~2h | 热身 4.5/5；Deps/Closure/Race/Cleanup 四个 demo；修正 CleanupLab 漏 []；自测 5.3/6；typecheck/lint/build 通过 |

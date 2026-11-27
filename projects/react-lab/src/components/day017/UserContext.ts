@@ -1,13 +1,5 @@
 import { createContext, useContext } from 'react'
-
-type User = {
-  isLogin: boolean
-  name: string
-}
-type UserValue = User & {
-  login: () => void
-  logout: () => void
-}
+import type { UserValue } from './types'
 
 const UserContext = createContext<UserValue | null>(null)
 
@@ -19,4 +11,4 @@ const useUserContext = () => {
   return context
 }
 
-export { UserContext, useUserContext, type User, type UserValue }
+export { UserContext, useUserContext }

@@ -1,10 +1,7 @@
 import { createContext, useContext } from 'react'
+import type { ThemeValue } from './types'
 
-type Theme = 'light' | 'dark'
-type ThemeValue = {
-  theme: Theme
-  toggle: () => void
-}
+
 const ThemeContext = createContext<ThemeValue | null>(null)
 
 const useThemeContext = () => {
@@ -15,4 +12,4 @@ const useThemeContext = () => {
   return context
 }
 
-export { ThemeContext, useThemeContext, type ThemeValue, type Theme }
+export { ThemeContext, useThemeContext }

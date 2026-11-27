@@ -8,7 +8,8 @@ const MeasureLab = () => {
     if (!boxRef.current) {
       return
     }
-    setSize([boxRef.current.offsetWidth, boxRef.current.offsetHeight])
+    const rect = boxRef.current.getBoundingClientRect()
+    setSize([rect.width, rect.height])
   }
   return (
     <div>
@@ -16,7 +17,7 @@ const MeasureLab = () => {
         size: {size[0]}, {size[1]}
       </p>
       <button onClick={() => boxRef.current?.scrollIntoView()}>
-        scrollToBottom
+        scrollToBox
       </button>
       <button onClick={handleMeasure}>measure</button>
       <div

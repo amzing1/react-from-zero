@@ -4,11 +4,12 @@ const FocusLab = () => {
   const inputRef = useRef<HTMLInputElement | null>(null)
   return <div>
     <input ref={(node) => {
-      console.log()
+      console.log('attach', node)
       if (node) {
         inputRef.current = node
       }
       return () => {
+        inputRef.current = null
         console.log('cleanup')
       }
     }} />

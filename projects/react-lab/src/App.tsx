@@ -1,14 +1,10 @@
-import FocusLab from "./components/day019/FocusLab"
-import MeasureLab from "./components/day019/MeasureLab"
-import RefVsStateLab from "./components/day019/RefVsStateLab"
 
+import EffectLab from "./components/day020/EffectLab"
 
 function App() {
   return (
     <div>
-      <RefVsStateLab />
-      <FocusLab />
-      <MeasureLab />
+      <EffectLab />
     </div>
   )
 }

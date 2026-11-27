@@ -58,13 +58,16 @@
 | 2026-11-25 | never 与状态机 | 把 never 当成"消灭不可能状态"的工具 | 消灭不可能状态靠互斥联合成员 + 数据随状态走；never 只做编译期穷尽检查 | Day 016 自测 Q4 / 补测 Q2 | 2026-11-26 | 已复述（11-25） |
 | 2026-11-25 | dispatch 队列语义 | 以为 dispatch 立刻执行 reducer；认为执行次数固定；11-26 复测说两次 dispatch reducer 只执行 1 次 | dispatch 把 action 排队，下一次 render 按顺序处理（两个 action 概念上各处理一次）；eager 计算 / StrictMode 使调用次数不是 API 保证 | Day 016 补测 Q3；Day 018 热身 Q2 | 2026-11-29 | 部分掌握（11-26 复测：render 对、reducer 次数错） |
 | 2026-11-25 | reducer 内生成随机 id | reducer 里调用 crypto.randomUUID() | 违反"同输入同输出"；StrictMode 双调用生成两个 id；id 在事件处理函数生成并随 action 传入 | Day 016 代码 review | 2026-11-26 | 已修正（11-25） |
-| 2026-11-26 | 状态分区判据 | 用「变化频率」解释任务数据放 Context、筛选放本地 | 首要判据是共享范围 / 所有权：任务数据被多组件读写、多事件修改 → reducer + Context；筛选只服务面板 UI、离开即重置 → 本地；频率是次要因素 | Day 018 自测 Q1 | 2026-11-27 | 待复习 |
-| 2026-11-26 | 「不订阅 Context」≠「不重渲染」 | 认为没订阅 Context 的 TaskItem 不会重渲染 | TaskBoard 订阅 tasks 后重渲染，TaskList / TaskItem 作为子组件被父级重渲染带动；Composer 不重渲染靠稳定 children + 稳定 dispatch | Day 018 自测 Q4 | 2026-11-27 | 待复习 |
+| 2026-11-26 | 状态分区判据 | 用「变化频率」解释任务数据放 Context、筛选放本地；11-27 020 热身已完整答出判据 | 首要判据是共享范围 / 所有权：任务数据被多组件读写、多事件修改 → reducer + Context；筛选只服务面板 UI、离开即重置 → 本地；频率是次要因素 | Day 018 自测 Q1；Day 019/020 热身 | 2026-11-29 | 已纠正（11-27 020 热身） |
+| 2026-11-26 | 「不订阅 Context」≠「不重渲染」 | 认为没订阅 Context 的 TaskItem 不会重渲染；11-27 复测机制基本正确，漏「稳定 children」 | TaskBoard 订阅 tasks 后重渲染，TaskList / TaskItem 作为子组件被父级重渲染带动；Composer 不重渲染靠稳定 children + 稳定 dispatch | Day 018 自测 Q4；Day 019 复训 Q2 | 2026-11-29 | 部分纠正（11-27 复测） |
 | 2026-11-26 | Pinia actions 的映射 | 把 Pinia actions 直接等同于 dispatch | actions ≈ 事件处理 + dispatch；异步在事件 / action 内，reducer 始终同步纯函数；getters 有缓存，render 派生每次重算 | Day 018 自测 Q5 | 2026-11-27 | 待复习 |
-| 2026-11-26 | 编辑草稿直接绑 store | 只答「每个 task 都要维护副本」，没说出两种坏结局 | 直接绑 task：① 输入即 mutate，违反不可变；② 每字符 dispatch，全局重渲染且无法取消。本地副本让编辑事务化：保存一次提交，取消即丢弃 | Day 018 自测 Q6 | 2026-11-27 | 待复习 |
-| 2026-11-26 | render 期间读 ref | RefVsStateLab 在 JSX 中直接读 `countRef.current` 展示 | render 必须纯；ref 读写放事件 / Effect / callback；要展示时用 state 做快照，点击「读取 ref」再把值 setState | Day 019 review | 2026-11-27 | 待修正 |
-| 2026-11-26 | ref callback cleanup | FocusLab 返回 cleanup 但没把 object ref 置 null；attach 日志为空 | React 19 返回 cleanup 后卸载不再传 null；cleanup 里应手动清空存储的 ref；日志打印 node 才能观察 setup → cleanup → setup | Day 019 review | 2026-11-27 | 待修正 |
-| 2026-11-26 | useRef 参数求值 | 答「一个执行函数，一个放函数地址」，没说清 useRef 实参每次 render 都会求值 | useState 的函数参数是惰性初始化器，只在挂载时调用（StrictMode 双调用）；useRef 没有该重载，参数表达式每次 render 先执行，只保留首次结果 | Day 019 检查点 | 2026-11-27 | 待复习 |
+| 2026-11-26 | 编辑草稿直接绑 store | 只答「每个 task 都要维护副本」，没说出两种坏结局；11-27 复测只答出一种 | 直接绑 task：① 输入即 mutate，违反不可变；② 每字符 dispatch，全局重渲染且无法取消。本地副本让编辑事务化：保存一次提交，取消即丢弃 | Day 018 自测 Q6；Day 020 热身 Q3 | 2026-11-29 | 部分掌握（11-27 复测） |
+| 2026-11-26 | render 期间读 ref | RefVsStateLab 在 JSX 中直接读 `countRef.current` 展示 | render 必须纯；ref 读写放事件 / Effect / callback；要展示时用 state 做快照，点击「读取 ref」再把值 setState | Day 019 review | 2026-11-27 | 已修正（11-27，state 快照） |
+| 2026-11-26 | ref callback cleanup | FocusLab 返回 cleanup 但没把 object ref 置 null；attach 日志为空 | React 19 返回 cleanup 后卸载不再传 null；cleanup 里应手动清空存储的 ref；日志打印 node 才能观察 setup → cleanup → setup | Day 019 review | 2026-11-27 | 已修正（11-27，cleanup 置 null） |
+| 2026-11-26 | useRef 参数求值 | 答「一个执行函数，一个放函数地址」，没说清 useRef 实参每次 render 都会求值 | useState 的函数参数是惰性初始化器，只在挂载时调用（StrictMode 双调用）；useRef 没有该重载，参数表达式每次 render 先执行，只保留首次结果 | Day 019 检查点；Day 020 热身 Q1 | 2026-11-28 | 已复述（11-27 020 热身） |
+| 2026-11-27 | 媒体状态同步 | 认为 play/pause 后手动 toggle state 即可 | 媒体元素的真实状态由事件同步：onPlay / onPause / onEnded / onVolumeChange；play() 返回 Promise 可能被拒绝；UI 状态是外部系统的投影，不是事实来源 | Day 019 热身 Q5 / MediaLab review | 2026-11-28 | 已修正（11-27，代码） |
+| 2026-11-27 | 依赖数组与引用 | 020 自测 Q1 只答了 Object.is 比较规则，没答内联对象/函数每次 render 新引用导致 Effect 每次执行 | 内联对象/函数每次 render 都是新引用 → Object.is 失败 → 每次执行；解法：定义移进 Effect / 组件外、useMemo / useCallback、useEffectEvent（021）；ref.current 变化不触发 Effect | Day 020 自测 Q1 | 2026-11-28 | 部分掌握（11-27） |
+| 2026-11-27 | 订阅 Effect 漏依赖数组 | CleanupLab 初版 Effect 没写 []，等于每次 render 重新订阅 | 只订阅一次的 Effect 必须 [] + cleanup；加 state 展示后能验证 resize 不会重复订阅 | Day 020 代码 review | 2026-11-28 | 已修正（11-27，补 []） |
 
 ## 高频错误清单
 
@@ -88,8 +91,11 @@
 | 不订阅 Context ≠ 不重渲染 | 父级重渲染带动子树；跳过需稳定元素 / memo | 待复习（11-26） |
 | 编辑草稿 | 本地副本；保存提交、取消丢弃 | 待复习（11-26） |
 | Pinia actions | ≈ 事件处理 + dispatch；异步不进 reducer | 待复习（11-26） |
-| render 读 ref | 不纯；展示走 state 快照 | 待修正（11-26） |
-| useRef 参数 | 每次 render 求值；惰性初始化用 useState | 待复习（11-26） |
+| render 读 ref | 不纯；展示走 state 快照 | 已修正（11-27） |
+| useRef 参数 | 每次 render 求值；惰性初始化用 useState | 待复习（11-28） |
+| 媒体状态同步 | 事件驱动；play() Promise 可能 reject | 已修正（11-27） |
+| 内联依赖 | 每次 render 新引用 → Effect 每次执行；移进 Effect / useMemo | 待复习（11-28） |
+| 订阅漏 [] | 每次 render 重新订阅；[] + cleanup | 已修正（11-27） |
 
 ### Hooks 与 Effect
 
@@ -145,3 +151,5 @@
 | 2026-11-25 | 017 自测（6 题） | 5.6/6；Context 定位/重渲染/优化/memo/state-dispatch 全对；Vue provide/inject 对比需补 | 已写入错题，11-26 复习 |
 | 2026-11-26 | 018 自测（6 题）+ 11-26 到期热身 | 自测 4.4/6；Q1 判据、Q4 重渲染机制、Q5 actions 映射、Q6 编辑草稿是缺口；热身 3.3/5（Q2 reducer 次数、Q1 Vue 对比仍不完整） | 已写入错题，11-27 重测 Q1/Q4/Q5/Q6；017 Q1 11-29 再测 |
 | 2026-11-26 | 019 热身 + 检查点 + 前三个 demo review | 热身 3.8/5；检查点 state/ref/变量 4/4，useRef 求值时机 0.6；review 发现 render 读 ref、cleanup 未置 null | 已写入错题；019 暂停，下次先修 |
+| 2026-11-27 | 019 收尾：热身 3.9/5、自测 5.1/6、代码 review | render 读 ref / cleanup 已修正；媒体状态改事件驱动；FancyInput 类型与 deps 修正 | 已写入错题；019 完成 |
+| 2026-11-27 | 020 自测（6 题）+ 代码 review | 自测 5.3/6；Q1 漏内联依赖原因；CleanupLab 漏 [] 已修 | 已写入错题；020 完成 |

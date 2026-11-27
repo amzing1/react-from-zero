@@ -1,5 +1,6 @@
 import { useMemo, useState, type ReactNode } from 'react'
-import { ThemeContext, type Theme, type ThemeValue } from './ThemeContext'
+import { ThemeContext } from './ThemeContext'
+import type { Theme, ThemeValue } from './types'
 
 interface Props {
   children: ReactNode
